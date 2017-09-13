@@ -22,16 +22,15 @@ public class Task3 {
 
 
             //сортировка вставками
-            for (int j = 1; j < size; j++) {
-                int i = j - 1;
-
-                while (i >= 0 && (array[i] > array[i + 1])) {
-                    int temp = array[i];
-                    array[i] = array[i + 1];
-                    array[i + 1] = temp;
+            for (int j = 0; j < size; j++) {
+                int newValue = array[j];
+                int i = j;
+                while (i > 0 && (array[i - 1] > newValue)) {
+                    array[i] = array[i - 1];
                     i--;
                 }
-                indexes[j] = i + 2;
+                array[i] = newValue;
+                indexes[j] = ++i;
             }
 
 
@@ -42,3 +41,6 @@ public class Task3 {
         }
     }
 }
+
+
+
